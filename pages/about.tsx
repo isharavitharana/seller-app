@@ -1,5 +1,10 @@
-import Link from 'next/link'
-import { Container, Main, Title, Description } from '../components/sharedstyles'
+import Link from 'next/link';
+import {
+  Container,
+  Main,
+  Title,
+  Description,
+} from '../src/components/sharedstyles';
 
 export default function About() {
   return (
@@ -7,9 +12,9 @@ export default function About() {
       <Main>
         <Title>About Page</Title>
         <Description>
-          <Link href="/">&larr; Go Back</Link>
+          <Link href='/'>&larr; Go Back</Link>
         </Description>
       </Main>
     </Container>
-  )
+  );
 }
