@@ -5,17 +5,19 @@ import { HeartFill } from '@styled-icons/bootstrap';
 import { useRouter } from 'next/router';
 
 const PrimaryNav = styled.nav`
-  display: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.primary};
+  z-index: 15;
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   @media (min-width: 600px) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    background: ${({ theme }) => theme.colors.primary};
-    z-index: 15;
-    height: 50px;
-    padding: 0 30px;
+    display: none;
   }
 `;
 
@@ -29,23 +31,27 @@ const NavButton = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 30px;
+  justify-content: center;
+  //   margin-right: 30px;
   cursor: pointer;
-`;
-const NavButtonHeading = styled.h3`
-  color: #ffffff;
-  margin-left: 10px;
+  width: 100%;
 `;
 
-export default function PrimaryAppBar() {
+const Divider = styled.span`
+  border-left: 1px solid #ffffff;
+  height: 40px;
+`;
+
+export default function SecondaryAppBar() {
   const router = useRouter();
   return (
     <PrimaryNav>
       <NavButton onClick={() => router.push('/')}>
-        <HomeIcon size='35' /> <NavButtonHeading>Home</NavButtonHeading>
+        <HomeIcon size='35' />
       </NavButton>
+      <Divider />
       <NavButton onClick={() => router.push('/my-products')}>
-        <HeartIcon size='30' /> <NavButtonHeading>Liked</NavButtonHeading>
+        <HeartIcon size='30' />
       </NavButton>
     </PrimaryNav>
   );

@@ -7,7 +7,7 @@ export interface ProductType {
   price: string;
   description?: string;
   likes?: number;
-  // tags?: string[];
+  tags?: [];
   isLiked: boolean;
   seller_name: string;
   seller_id: string;
@@ -33,9 +33,9 @@ const ProductSchema = new Schema<ProductType>({
   likes: {
     type: Number,
   },
-  // tags: {
-  //   type: [],
-  // },
+  tags: {
+    type: [{ type: String }],
+  },
   isLiked: {
     required: true,
     type: Boolean,
@@ -49,8 +49,6 @@ const ProductSchema = new Schema<ProductType>({
     required: true,
   },
 });
-
-// const Product = mongoose.model('Product', ProductSchema);
 
 // const Product = mongoose.model<ProductType>('Product', ProductSchema);
 // export default Product;
