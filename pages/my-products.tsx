@@ -21,7 +21,8 @@ export async function getServerSideProps() {
   // });
 
   //node js backend
-  const res = await fetch(`http://localhost:3001/favourite-products`, {
+  const API = process.env.NEXT_PUBLIC_API;
+  const res = await fetch(`${API}/favourite-products`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',

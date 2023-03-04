@@ -179,7 +179,8 @@ export default function CardWrapper({
       //   },
       //   body: JSON.stringify({ isLiked: isLiked ? false : true }),
       // });
-      const res = await fetch(`http://localhost:3001/change-favourite/${id}`, {
+      const API = process.env.NEXT_PUBLIC_API;
+      const res = await fetch(`${API}/change-favourite/${id}`, {
         method: 'PUT',
         headers: {
           Accept: 'application/json',

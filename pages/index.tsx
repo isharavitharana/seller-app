@@ -5,7 +5,6 @@ import dbConnect from '../utils/mongo/dbConnect';
 import Product, { ProductType } from '../utils/mongo/Product';
 
 export default function Home({ products }: { products: ProductType[] }) {
-  console.log('products', products);
   return (
     <Layout title='Home' description='Seller-App Home page'>
       <CardWrapper fetchedroducts={products} isLikedProducts={false} />
@@ -24,7 +23,8 @@ export async function getServerSideProps() {
   // });
 
   //node js backend
-  const res = await fetch(`http://localhost:3001/products`, {
+  const API = process.env.NEXT_PUBLIC_API;
+  const res = await fetch(`${API}/products`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
